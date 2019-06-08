@@ -44,8 +44,8 @@ class TestSinglyLinkedList(TestCase):
         self.linked_list.remove(2)
 
         self.assertEqual(self.linked_list.size(), 2)
-        self.assertIsNone(self.linked_list.search(2))
         self.assertEqual(self.linked_list.search(1).data, 1)
+        self.assertIsNone(self.linked_list.search(2))
         self.assertEqual(self.linked_list.search(3).data, 3)
 
     def test_remove_head(self):
@@ -56,9 +56,9 @@ class TestSinglyLinkedList(TestCase):
         self.linked_list.remove(3)
 
         self.assertEqual(self.linked_list.size(), 2)
-        self.assertIsNone(self.linked_list.search(3))
         self.assertEqual(self.linked_list.search(1).data, 1)
         self.assertEqual(self.linked_list.search(2).data, 2)
+        self.assertIsNone(self.linked_list.search(3))
 
     def test_remove_tail(self):
         self.linked_list.add_front(1)
@@ -68,7 +68,7 @@ class TestSinglyLinkedList(TestCase):
         self.linked_list.remove(1)
 
         self.assertEqual(self.linked_list.size(), 2)
-        self.assertIsNone(self.linked_list.search(3))
+        self.assertIsNone(self.linked_list.search(1))
         self.assertEqual(self.linked_list.search(2).data, 2)
         self.assertEqual(self.linked_list.search(3).data, 3)
 

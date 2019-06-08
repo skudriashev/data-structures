@@ -1,4 +1,5 @@
 class Node:
+    __slots__ = ('data', 'next')
 
     def __init__(self, data, next_node=None):
         self.data = data
@@ -21,8 +22,7 @@ class SinglyLinkedList:
         return self._head is None
 
     def add_front(self, data):
-        node = Node(data, self._head)
-        self._head = node
+        self._head = Node(data, self._head)
         self._size += 1
 
     def size(self):
@@ -41,10 +41,12 @@ class SinglyLinkedList:
         previous = None
         while current is not None:
             if current.data == data:
-                if previous is not None:
-                    previous.next = current.next
+                if previous is None:
+                    self._head = current.next
+                    self._size -= 1
+                    break
                 else:
-                    self._head = None
+                    previous.next = current.next
 
                 self._size -= 1
 

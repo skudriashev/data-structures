@@ -1,6 +1,6 @@
 from unittest import TestCase
 
-from my_queue.my_queue import Queue
+from data_structures.queue import Queue
 
 
 class TestQueue(TestCase):
